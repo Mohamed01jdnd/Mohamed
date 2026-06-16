@@ -5,25 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قلوب متحركة ❤️</title>
     <style>
-        /* تنسيق الخلفية والنص */
+        /* تنسيق الخلفية والصفحة */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #0b0b2b; /* لون خلفية داكن */
+            background: linear-gradient(135deg, #0b0b2b, #1a1a4e); /* خلفية متدرجة */
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            direction: rtl; /* لجعل النص من اليمين لليسار */
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        /* تنسيق الصورة (دائرية) */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ff4d6d;
+            box-shadow: 0 0 30px rgba(255, 77, 109, 0.4);
+            margin-bottom: 20px;
+        }
+
+        /* تنسيق الاسم */
+        .name {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 10px 0;
+            text-shadow: 0 0 20px rgba(255, 77, 109, 0.3);
+        }
+
+        /* تنسيق النص التحت الاسم */
+        .sub-text {
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 20px;
         }
 
         .heart {
-            font-size: 100px; /* حجم القلب الكبير */
+            font-size: 80px;
             color: #ff4d6d;
-            animation: heartbeat 1.5s ease-in-out infinite; /* تطبيق الحركة */
+            animation: heartbeat 1.5s ease-in-out infinite;
             cursor: pointer;
             user-select: none;
-            /* ظل للقلب */
-            text-shadow: 0 0 20px #ff4d6d, 0 0 60px #ff4d6d, 0 0 100px #ff4d6d;
+            display: inline-block;
+            text-shadow: 0 0 30px #ff4d6d, 0 0 60px #ff4d6d;
+            transition: transform 0.2s ease;
         }
 
         /* تعريف الحركة (نبضات القلب) */
@@ -36,26 +80,73 @@
             100% { transform: scale(1); }
         }
 
-        /* تغيير شكل القلب عند الضغط عليه */
         .heart:active {
             animation: none;
             transform: scale(0.8);
         }
+
+        /* تأثير تحوم الفأرة على القلب */
+        .heart:hover {
+            text-shadow: 0 0 50px #ff4d6d, 0 0 100px #ff4d6d;
+        }
+
+        /* تنسيق الزر (اختياري) */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 20px rgba(255, 77, 109, 0.4);
+        }
+
+        .btn:hover {
+            background: #ff1a4a;
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body>
-    <div class="heart" id="heart">❤️</div>
+
+    <div class="card">
+        <!-- الصورة: ضع رابط الصورة هنا -->
+      <img class="profile-img" src="sticker.webp" alt="صورة الملف الشخصي">
+
+        <!-- الاسم -->
+        <div class="name">nour-al-khateb:)</div>
+
+        <!-- نص إضافي -->
+        <div class="sub-text">❤️  ❤️</div>
+
+        <!-- القلب المتحرك -->
+        <div class="heart" id="heart">❤️</div>
+
+        <!-- زر اختياري (يمكنك حذفه) -->
+        <div>
+            <button class="btn" onclick="sendLove()">أرسل حباً</button>
+        </div>
+    </div>
 
     <script>
-        // كود JavaScript لجعل القلب يتفاعل مع النقر
+        // كود JavaScript للتفاعل مع القلب
         const heart = document.getElementById('heart');
         heart.addEventListener('click', function() {
-            // تغيير حجم القلب مؤقتاً عند النقر
-            this.style.transform = 'scale(1.5)';
+            this.style.transform = 'scale(1.8)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
             }, 300);
         });
+
+        // دالة الزر (اختياري)
+        function sendLove() {
+            alert('❤️ تم إرسال الحب! ❤️');
+        }
     </script>
 </body>
 </html>
