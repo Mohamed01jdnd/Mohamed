@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قلوب متحركة ❤️</title>
+    <style>
+        /* تنسيق الخلفية والنص */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0b0b2b; /* لون خلفية داكن */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .heart {
+            font-size: 100px; /* حجم القلب الكبير */
+            color: #ff4d6d;
+            animation: heartbeat 1.5s ease-in-out infinite; /* تطبيق الحركة */
+            cursor: pointer;
+            user-select: none;
+            /* ظل للقلب */
+            text-shadow: 0 0 20px #ff4d6d, 0 0 60px #ff4d6d, 0 0 100px #ff4d6d;
+        }
+
+        /* تعريف الحركة (نبضات القلب) */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        /* تغيير شكل القلب عند الضغط عليه */
+        .heart:active {
+            animation: none;
+            transform: scale(0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="heart" id="heart">❤️</div>
+
+    <script>
+        // كود JavaScript لجعل القلب يتفاعل مع النقر
+        const heart = document.getElementById('heart');
+        heart.addEventListener('click', function() {
+            // تغيير حجم القلب مؤقتاً عند النقر
+            this.style.transform = 'scale(1.5)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
